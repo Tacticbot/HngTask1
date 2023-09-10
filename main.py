@@ -4,7 +4,12 @@ import pytz
 
 app = FastAPI()
 
-@app.get("/api")
+@app.get("/")
+async def root():
+    return {"message":"HNG X task 1, check /api for the task"}
+
+
+@app.get("/api/")
 async def api(slack_name: str, track: str):
     response_data = {
         "slack_name": slack_name,
